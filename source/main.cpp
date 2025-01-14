@@ -388,17 +388,17 @@ int main(int argc, char* argv[]) {
 
 	glGenVertexArrays(1, &emptyVAO);
 
-	shaderCatalog = std::make_unique<ShaderCatalog>("shaders");
+	shaderCatalog = std::make_unique<ShaderCatalog>(SOURCE_DIR "/shaders");
 	backgroundShader = shaderCatalog->get("background");
 	fontShader = shaderCatalog->get("font");
 
-	tryUpdateMainFont("fonts/SourceSerifPro-Regular.otf");
+	tryUpdateMainFont(SOURCE_DIR "/fonts/SourceSerifPro-Regular.otf");
 
 	{
 		float xscale, yscale;
 		glfwGetWindowContentScale(window, &xscale, &yscale);
 		float worldSize = std::ceil(helpFontBaseSize * yscale);
-		helpFont = loadFont("fonts/SourceSansPro-Semibold.otf", worldSize, true);
+		helpFont = loadFont(SOURCE_DIR "/fonts/SourceSansPro-Semibold.otf", worldSize, true);
 	}
 
 	while(!glfwWindowShouldClose(window)) {
